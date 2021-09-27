@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 // import testObservable from './testObservable';
 // import testSubject from './testSubject';
 // import testBehaviorSubject from './testBehaviorSubject';
-import testReplaySubject from './testReplaySubject';
+// import testReplaySubject from './testReplaySubject';
 
 function App() {
   // #Observable
@@ -17,7 +17,7 @@ function App() {
   // testBehaviorSubject();
 
   // #ReplaySubject
-  testReplaySubject();
+  // testReplaySubject();
 
 
   return (
