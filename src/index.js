@@ -14,11 +14,23 @@ function App() {
     subscriber.complete();
   };
   const source$ = createObservable(subscriberCallback);
-  const subscribeConfig = {
+  const subscribeConfigOne = {
     next: data => console.log(`Observable 第一次訂閱: ${data}`),
-    complete: () => console.log('首次訂閱完成'),
+    complete: () => {
+      console.log('首次訂閱完成');
+      console.log('------------');
+    },
   };
-  source$.subscribe(subscribeConfig);
+  source$.subscribe(subscribeConfigOne);
+  
+  const subscribeConfigTwo = {
+    next: data => console.log(`Observable 第二次訂閱: ${data}`),
+    complete: () => {
+      console.log('第二次訂閱完成');
+      console.log('------------');
+    },
+  };
+  source$.subscribe(subscribeConfigTwo);
 
   return (
     <div>
