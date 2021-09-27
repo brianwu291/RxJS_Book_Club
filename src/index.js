@@ -10,15 +10,22 @@ function App() {
     subscriber.next(2);
     subscriber.next(3);
     subscriber.next(4);
-    console.log('stream end');
     subscriber.complete();
+    console.log('stream end');
+    // Promise.resolve()
+    //   .then(() => {
+    //     subscriber.next(4);
+    //     subscriber.complete();
+    //     console.log('stream end');
+    //   });
   };
+
   const source$ = createObservable(subscriberCallback);
+
   const subscribeConfigOne = {
     next: data => console.log(`Observable 第一次訂閱: ${data}`),
     complete: () => {
       console.log('首次訂閱完成');
-      console.log('------------');
     },
   };
   source$.subscribe(subscribeConfigOne);
@@ -27,7 +34,6 @@ function App() {
     next: data => console.log(`Observable 第二次訂閱: ${data}`),
     complete: () => {
       console.log('第二次訂閱完成');
-      console.log('------------');
     },
   };
   source$.subscribe(subscribeConfigTwo);
