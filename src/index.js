@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // import testObservable from './testObservable';
-// import createSubject from './createSubject';
+// import testSubject from './testSubject';
 // import createBehaviorSubject from './createBehaviorSubject';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
 
 
   // #Subject
+  // testSubject();
 
   // const source$ = createSubject();
 
