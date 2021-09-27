@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import createObservable from './createObservable';
-import subscriber from './subscriber';
 
 function App() {
   const subscriberCallback = subscriber => {
@@ -19,7 +18,7 @@ function App() {
     next: data => console.log(`Observable 第一次訂閱: ${data}`),
     complete: () => console.log('首次訂閱完成'),
   };
-  subscriber(source$, subscribeConfig);
+  source$.subscribe(subscribeConfig);
 
   return (
     <div>
