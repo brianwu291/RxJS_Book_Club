@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 // import testSubject from './testSubject';
 // import testBehaviorSubject from './testBehaviorSubject';
 // import testReplaySubject from './testReplaySubject';
+// import testAsyncSubject from './testAsyncSubject';
 
 function App() {
   // #Observable
@@ -18,6 +19,9 @@ function App() {
 
   // #ReplaySubject
   // testReplaySubject();
+
+  // #AsyncSubject
+  // testAsyncSubject();
 
 
   return (
