@@ -39,7 +39,7 @@ export default function testWarmObservable() {
   //   console.log(result);
   // });
 
-  // // 第二次訂閱時，會重新跑一次流程，因此會再次呼叫 API
+  // // 第二次訂閱時，不會重新呼叫 API
   // sharedApiRequest$.subscribe(result => {
   //   console.log('第二次 API 呼叫結果')
   //   console.log(result);
