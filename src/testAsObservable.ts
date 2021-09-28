@@ -9,7 +9,7 @@ export default function testAsObservable() {
       return this._score$.asObservable();
     }
   
-    updateScore(score) {
+    updateScore(score: any) {
       // 大於 60 才推送成績事件
       if (score > 60) {
         this._score$.next(score);

@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 // import testReplaySubject from './testReplaySubject';
 // import testAsyncSubject from './testAsyncSubject';
 // import testAsObservable from './testAsObservable';
+// import testWarmObservable from './testWarmObservable';
 
 function App() {
   // #Observable
@@ -26,6 +27,9 @@ function App() {
 
   // #AsObservable
   // testAsObservable();
+
+  // #WarmObservable
+  // testWarmObservable();
 
 
   return (
