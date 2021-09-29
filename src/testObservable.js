@@ -31,11 +31,11 @@ export default function testObservable() {
   };
   source$.subscribe(subscribeConfigOne);
   
-  const subscribeConfigTwo = {
-    next: data => console.log(`Observable 第二次訂閱: ${data}`),
-    complete: () => {
-      console.log('第二次訂閱完成');
-    },
-  };
-  source$.subscribe(subscribeConfigTwo);
+  // const subscribeConfigTwo = {
+  //   next: data => console.log(`Observable 第二次訂閱: ${data}`),
+  //   complete: () => {
+  //     console.log('第二次訂閱完成');
+  //   },
+  // };
+  // source$.subscribe(subscribeConfigTwo);
 }
