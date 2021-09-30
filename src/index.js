@@ -8,8 +8,10 @@ import ReactDOM from 'react-dom';
 // import testAsyncSubject from './testAsyncSubject';
 // import testAsObservable from './testAsObservable';
 // import testWarmObservable from './testWarmObservable';
+import memberOne from './memberOne';
 
 function App() {
+  memberOne();
   // #Observable
   // testObservable();
 
@@ -31,12 +33,11 @@ function App() {
   // #WarmObservable
   // testWarmObservable();
 
-
   return (
     <div>
       App
     </div>
   );
-};
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
