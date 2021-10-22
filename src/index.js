@@ -16,18 +16,33 @@ import useGmbApplyFlowMachine, {
 
 function App() {
   const [state, send] = useGmbApplyFlowMachine();
-  console.log('current state', state.value);
+  console.log('current state', state);
   console.log('current context', state.context);
   return (
     <div>
       App
-      <button
-        type="button"
-        onClick={() => send(APPLY_EVENTS.next)}
+      <div>
+        {`current state: ${state.toStrings().toString()}`}
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
       >
-        next
-      </button>
-      {}
+        {Object.keys(APPLY_EVENTS).map(eventType => (
+          <button
+            key={eventType}
+            type="button"
+            onClick={() => send(APPLY_EVENTS[eventType])}
+            style={{
+              marginBottom: '10px',
+            }}
+          >
+            {eventType}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

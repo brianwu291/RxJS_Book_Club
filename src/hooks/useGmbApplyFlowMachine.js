@@ -14,27 +14,23 @@ export const APPLY_EVENTS = {
   toCreateNewLocation: 'toCreateNewLocation',
   bindExistingLocation: 'toApplySuccess',
   applyNewLocationSuccess: 'toApplySuccess',
-  applyNewLocationFail: 'toApplyFail',
+  applyNewLocationFail: 'toReady',
 };
 
 const getOTC = () => new Promise((res) => {
   setTimeout(() => {
-    res({
-      oneTimeCode: null,
-      error: 'user deny',
-    });
-    // const random = Math.random() * 5;
-    // if (random >= 2) {
-    //   res({
-    //     oneTimeCode: 'one time code',
-    //     error: null,
-    //   });
-    // } else {
-    //   res({
-    //     oneTimeCode: null,
-    //     error: 'user deny',
-    //   });
-    // }
+    const random = Math.random() * 5;
+    if (random >= 2) {
+      res({
+        oneTimeCode: 'one time code',
+        error: null,
+      });
+    } else {
+      res({
+        oneTimeCode: null,
+        error: 'user deny',
+      });
+    }
   }, 1000);
 });
 
@@ -119,7 +115,10 @@ const applyGmbState = {
         },
         [APPLY_EVENTS.bindExistingLocation]: {
           target: 'applySuccess',
-        }
+        },
+        [APPLY_EVENTS.toReady]: {
+          target: '#gmb.ready'
+        },
       },
     },
     createNewLocation: {
@@ -128,14 +127,11 @@ const applyGmbState = {
           target: 'applySuccess',
         },
         [APPLY_EVENTS.applyNewLocationFail]: {
-          target: 'applyFail',
+          target: '#gmb.ready',
         },
       },
     },
     applySuccess: {
-      type: 'final'
-    },
-    applyFail: {
       type: 'final'
     },
   },
