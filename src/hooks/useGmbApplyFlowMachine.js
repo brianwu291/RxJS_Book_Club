@@ -12,6 +12,9 @@ export const APPLY_EVENTS = {
   hasExistingLocation: 'toSelectExistingLocations',
   noExistingLocation:  'toCreateNewLocation',
   toCreateNewLocation: 'toCreateNewLocation',
+  bindExistingLocation: 'toApplySuccess',
+  applyNewLocationSuccess: 'toApplySuccess',
+  applyNewLocationFail: 'toApplyFail',
 };
 
 const getOTC = () => new Promise((res) => {
@@ -111,10 +114,30 @@ const applyGmbState = {
     },
     selectExistingLocations: {
       on: {
-        [APPLY_EVENTS.toCreateNewLocation]: 'createNewLocation',
+        [APPLY_EVENTS.toCreateNewLocation]: {
+          target: 'createNewLocation'
+        },
+        [APPLY_EVENTS.bindExistingLocation]: {
+          target: 'applySuccess',
+        }
       },
     },
-    createNewLocation: {},
+    createNewLocation: {
+      on: {
+        [APPLY_EVENTS.applyNewLocationSuccess]: {
+          target: 'applySuccess',
+        },
+        [APPLY_EVENTS.applyNewLocationFail]: {
+          target: 'applyFail',
+        },
+      },
+    },
+    applySuccess: {
+      type: 'final'
+    },
+    applyFail: {
+      type: 'final'
+    },
   },
 };
 
