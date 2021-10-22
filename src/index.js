@@ -16,14 +16,10 @@ import useGmbApplyFlowMachine, {
 
 function App() {
   const [state, send] = useGmbApplyFlowMachine();
-  console.log('current state', state);
-  console.log('current context', state.context);
+  console.log('current state', state.toStrings().pop());
   return (
     <div>
       App
-      <div>
-        {`current state: ${state.toStrings().toString()}`}
-      </div>
       <div
         style={{
           display: 'flex',
